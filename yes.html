@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .card {
+        background: rgb(242, 220, 223);
+        height: 300px;
+        width: 200px;
+        padding: 20px;
+        text-align: center;
+        border-radius: 5px;
+      }
+      button {
+        background-color: pink;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: 0px;
+      }
+      #noButton {
+        position: absolute;
+        transition: top 0.1s, left 0.1s;
+      }
+      #Yes:active {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1 class="title">You want to have sex with me?</h1>
+      <p class="descr">Click yes if you want, click no if you don't.</p>
+      <button id="Yes">YES</button>
+      <button id="noButton">NO</button>
+    </div>
+    <script>
+      const noButton = document.getElementById('noButton');
+      const yesButton = document.getElementById('Yes');
+
+      // Function to move the button
+      function moveButton() {
+        const maxX = window.innerWidth - noButton.offsetWidth;
+        const maxY = window.innerHeight - noButton.offsetHeight;
+
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
+
+        noButton.style.left = `${randomX}px`;
+        noButton.style.top = `${randomY}px`;
+      }
+
+      // Add both mouseover and touchstart event listeners
+      noButton.addEventListener('mouseover', moveButton);
+      noButton.addEventListener('touchstart', moveButton);
+    </script>
+  </body>
+</html>
