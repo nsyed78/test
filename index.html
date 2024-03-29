@@ -56,10 +56,15 @@
         noButton.style.left = `${randomX}px`;
         noButton.style.top = `${randomY}px`;
       }
+      function changeColor(){
+        yesButton.style.background = 'green'
+      }
 
       // Add both mouseover and touchstart event listeners
       noButton.addEventListener('mouseover', moveButton);
       noButton.addEventListener('touchstart', moveButton);
+
+      yesButton.addEventListener('touchstart', changeColor)
     </script>
   </body>
 </html>
